@@ -1,0 +1,305 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+height: 100%;
+width: 100%;
+overflow: hidden;
+background: #150d35;
+padding: 0;
+margin: 0;
+}
+
+* {
+box-sizing: border-box;
+}
+
+body {
+background: #81a6e0;
+background: linear-gradient(to bottom, #81a6e0 0%, #cc7bc5 100%);
+}
+
+svg {
+opacity: 1;
+}
+
+svg.hide {
+display: none;
+}
+
+svg * {
+stroke: inherit;
+transform: inherit;
+transform-origin: inherit;
+animation-delay: inherit;
+stroke: #ffffff;
+}
+
+svg {
+width: 80px;
+height: 60px;
+margin: 10px;
+opacity: 0.9;
+position: absolute;
+}
+
+svg.star {
+width: 12px;
+height: 12px;
+opacity: 0.4;
+}
+
+.stars-wrapper {
+opacity: 0.6;
+width: 100%;
+height: 100%;
+position: absolute;
+}
+
+#main-wrapper {
+width: 100%;
+height: 100%;
+position: absolute;
+}
+
+/* Animation and box shadows for stars */
+#stars {
+width: 1px;
+height: 1px;
+background: transparent;
+box-shadow: 455px 279px #FFF, 1632px 950px #FFF, 1932px 379px #FFF, /* multiple other random shadows */;
+animation: animStar 50s linear infinite;
+}
+
+#stars:after {
+content: " ";
+position: absolute;
+top: 2000px;
+width: 1px;
+height: 1px;
+background: transparent;
+box-shadow: 455px 279px #FFF, 1632px 950px #FFF, 1932px 379px #FFF, /* multiple other random shadows */;
+}
+
+#stars2 {
+width: 2px;
+height: 2px;
+background: transparent;
+box-shadow: 455px 279px #FFF, 1632px 950px #FFF, 1932px 379px #FFF, /* multiple other random shadows */;
+animation: animStar 100s linear infinite;
+}
+
+#stars2:after {
+content: " ";
+position: absolute;
+top: 2000px;
+width: 2px;
+height: 2px;
+background: transparent;
+box-shadow: 455px 279px #FFF, 1632px 950px #FFF, 1932px 379px #FFF, /* multiple other random shadows */;
+}
+
+#stars3 {
+width: 3px;
+height: 3px;
+background: transparent;
+box-shadow: 455px 279px #FFF, 1632px 950px #FFF, 1932px 379px #FFF, /* multiple other random shadows */;
+animation: animStar 150s linear infinite;
+}
+
+@keyframes animStar {
+from {
+    transform: translateY(0px);
+}
+to {
+    transform: translateY(-2000px);
+}
+}
+
+.container {
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+/* Centraliza o botão abaixo do texto */
+.container button {
+    background-color: #e0e0e0;
+    color: #150d35;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 10px #b19cd9, 0 0 20px #b19cd9, 0 0 30px #b19cd9, 0 0 40px #b19cd9;
+    margin-top: 20px; /* Espaço entre o texto e o botão */
+}
+
+.container button:hover {
+    background-color: #d8bfd8;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #d8bfd8, 0 0 30px #d8bfd8, 0 0 40px #d8bfd8, 0 0 50px #d8bfd8;
+}
+
+.container button:active {
+    background-color: #dda0dd;
+    transform: scale(0.9);
+    box-shadow: 0 0 5px #dda0dd, 0 0 10px #dda0dd, 0 0 15px #dda0dd, 0 0 20px #dda0dd;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.palette-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.palette-container div {
+    width: 100px;
+    height: 100px;
+    border-radius: 25px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.palette-container div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.palette-container div span {
+    display: none;
+    position: absolute;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.palette-container div:hover span {
+    display: block;
+}
+
+/* Estilo para o tooltip */
+.tooltip {
+    position: absolute;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Tooltip visível */
+.tooltip.show {
+    opacity: 1;
+}
+
+/* Ajuste de posição do tooltip */
+.tooltip::after {
+    content: '';
+    position: absolute;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Opções extras de estilo para o texto */
+.code-text {
+    font-family: 'Poppins', Courier, monospace;
+    font-size: 16px;
+    color: #333;
+}
+
+footer {
+    width: 100%;
+    padding: 10px;
+    background-color: #352b82;
+    color: #ffffff;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+footer a {
+    color: #81a6e0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #cc7bc5;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .palette-container div {
+        width: 60px;
+        height: 60px;
+    }
+
+    .container button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.1rem;
+    }
+
+    .container button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    footer {
+        font-size: 0.7rem;
+    }
+}
